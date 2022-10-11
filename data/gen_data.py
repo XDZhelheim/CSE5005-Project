@@ -41,8 +41,7 @@ if __name__ == "__main__":
     user_list=df_user["address"].values
     
     core=8
-    mp.set_start_method("fork")
-    pool=mp.Pool(core)
+    pool=mp.get_context("fork").Pool(core)
     tx_list=[]
     for _ in range(200):
         res=pool.apply_async(gen_tx, (url_list, user_list))
