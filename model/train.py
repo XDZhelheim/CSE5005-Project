@@ -228,18 +228,17 @@ if __name__ == "__main__":
     lr = 1e-4
     bi = True
 
-    max_epochs = 200
+    max_epochs = 100
     log_file = "train.log"
 
     if torch.backends.mps.is_available():
-        DEVICE = torch.device("mps")
+        # DEVICE = torch.device("mps")
+        DEVICE = torch.device("cpu")
     elif torch.cuda.is_available():
         GPU_ID = 2
         DEVICE = torch.device(f"cuda:{GPU_ID}")
     else:
         DEVICE = torch.device("cpu")
-
-    DEVICE = torch.device("cpu")
 
     sequence = pd.read_pickle("../data/data_9969.pkl")["label"].values
 
