@@ -7,7 +7,7 @@ import datetime
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from utils import accuracy
-from RNN import PureRNNClassifier
+from RNN import PureRNNClassifier, RNNClassifier
 
 
 def gen_xy(sequence, window):
@@ -23,7 +23,13 @@ def gen_xy(sequence, window):
         x.append(sequence[i : i + window])
         y.append(sequence[i + window])
 
-    return torch.FloatTensor(np.array(x)), torch.LongTensor(np.array(y))
+    x = np.array(x)
+    y = np.array(y)
+
+    if len(y.shape) > 1:
+        y = y[:, -1]
+
+    return torch.FloatTensor(x), torch.LongTensor(y)
 
 
 def get_dataloaders(sequence, window, train_size=0.7, val_size=0.1, batch_size=256):
@@ -223,8 +229,11 @@ def train(
 if __name__ == "__main__":
     net_type = "gru"
     window = 5
+    num_users = 2000
+    embedding_dim = 16
     hidden_dim = 32
     batch_size = 64
+    dropout = 0
     lr = 1e-4
     bi = True
 
@@ -240,19 +249,32 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
 
-    sequence = pd.read_pickle("../data/data_9969.pkl")["label"].values
+    # sequence = pd.read_pickle("../data/data_49986.pkl")["label"].values
+    sequence = pd.read_pickle("../data/data_49986.pkl")[
+        ["recv_timestamp", "from_user_id", "to_user_id", "value", "label"]
+    ].values
 
     train_loader, val_loader, test_loader = get_dataloaders(
         sequence, window, batch_size=batch_size
     )
 
-    model = PureRNNClassifier(
-        input_dim=1,
+    # model = PureRNNClassifier(
+    #     input_dim=1,
+    #     hidden_dim=hidden_dim,
+    #     net_type=net_type,
+    #     num_layers=1,
+    #     bidirectional=bi,
+    #     dropout=dropout,
+    # ).to(DEVICE)
+
+    model = RNNClassifier(
+        num_users=num_users,
+        embedding_dim=embedding_dim,
         hidden_dim=hidden_dim,
         net_type=net_type,
         num_layers=1,
         bidirectional=bi,
-        dropout=0,
+        dropout=dropout,
     ).to(DEVICE)
 
     criterion = torch.nn.CrossEntropyLoss()
