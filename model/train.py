@@ -233,9 +233,10 @@ if __name__ == "__main__":
     embedding_dim = 16
     hidden_dim = 32
     batch_size = 64
+    num_layers = 1
     dropout = 0
-    lr = 1e-4
-    bi = True
+    lr = 1e-5
+    bi = False
 
     max_epochs = 100
     log_file = "train.log"
@@ -244,7 +245,7 @@ if __name__ == "__main__":
         # DEVICE = torch.device("mps")
         DEVICE = torch.device("cpu")
     elif torch.cuda.is_available():
-        GPU_ID = 2
+        GPU_ID = 0
         DEVICE = torch.device(f"cuda:{GPU_ID}")
     else:
         DEVICE = torch.device("cpu")
@@ -272,7 +273,7 @@ if __name__ == "__main__":
         embedding_dim=embedding_dim,
         hidden_dim=hidden_dim,
         net_type=net_type,
-        num_layers=1,
+        num_layers=num_layers,
         bidirectional=bi,
         dropout=dropout,
     ).to(DEVICE)
