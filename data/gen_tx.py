@@ -68,7 +68,7 @@ if __name__ == "__main__":
     print(tx_list[:5])
 
     tx_list_sorted = sorted(tx_list, key=lambda tx: tx[1])
-    for i in range(1, len(tx_list_sorted)):
+    for i in range(1, len(tx_list_sorted)): # TODO 这里严谨应该比较发送时间
         if tx_list_sorted[i][0] < tx_list_sorted[i - 1][0]:
             tx_list_sorted[i][3] = 1
 
