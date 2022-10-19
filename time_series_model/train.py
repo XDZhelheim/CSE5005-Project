@@ -252,7 +252,7 @@ if __name__ == "__main__":
 
     # sequence = pd.read_pickle("../data/data_49986.pkl")["label"].values
     sequence = pd.read_pickle("../data/data_49986.pkl")[
-        ["recv_timestamp", "from_user_id", "to_user_id", "value", "label"]
+        ["from_user_id", "to_user_id", "label"]
     ].values
 
     train_loader, val_loader, test_loader = get_dataloaders(
@@ -263,7 +263,7 @@ if __name__ == "__main__":
     #     input_dim=1,
     #     hidden_dim=hidden_dim,
     #     net_type=net_type,
-    #     num_layers=1,
+    #     num_layers=num_layers,
     #     bidirectional=bi,
     #     dropout=dropout,
     # ).to(DEVICE)
