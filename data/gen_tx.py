@@ -36,7 +36,7 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
 
 
 if __name__ == "__main__":
-    with open("./website.json", "r") as f:
+    with open("./website.json", "r", encoding="utf8") as f:
         website_list = json.load(f)
 
     pattern = re.compile("http://(.+?)/")
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     user_url_list = df_user["url"].values
 
     tx_list = mp.Manager().list()
-    n = 50000
+    n = 100000
     num_jobs_running = 500
     for i in range(n // num_jobs_running):
         jobs = []
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     print(tx_list[:5])
 
     tx_list_sorted = sorted(tx_list, key=lambda tx: tx[1])
-    for i in range(1, len(tx_list_sorted)): # TODO 这里严谨应该比较发送时间
+    for i in range(1, len(tx_list_sorted)):
         if tx_list_sorted[i][0] < tx_list_sorted[i - 1][0]:
             tx_list_sorted[i][3] = 1
 
