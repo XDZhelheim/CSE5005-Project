@@ -229,7 +229,7 @@ def train(
 if __name__ == "__main__":
     num_users = 2000
     embedding_dim = 8
-    hidden_dim = 64
+    hidden_dim = 32
     batch_size = 64
     lr = 1e-4
 
