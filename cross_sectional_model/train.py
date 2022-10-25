@@ -228,9 +228,9 @@ def train(
 
 if __name__ == "__main__":
     num_users = 2000
-    embedding_dim = 8
-    hidden_dim = 32
-    batch_size = 64
+    embedding_dim = 4
+    hidden_dim = 2
+    batch_size = 32
     lr = 1e-4
 
     max_epochs = 500

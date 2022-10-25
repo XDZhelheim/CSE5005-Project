@@ -28,6 +28,12 @@ class BinaryClassifier(nn.Module):
         #     nn.Linear(self.hidden_dim, 2),
         # )
         
+        # self.mlp = nn.Sequential(
+        #     nn.Linear(self.input_dim, 2),
+        #     nn.BatchNorm1d(num_features=2),
+        #     nn.Dropout(0.2, inplace=True),
+        # ) # 0.8
+        
         self.mlp = nn.Linear(self.input_dim, 2)
 
     def forward(self, x):
