@@ -14,7 +14,7 @@ def gen_xy(sequence):
     """
     Returns
     ---
-    x: (num_samples, 2)
+    x: (num_samples, 2, num_features)
     y: (num_samples,) 1-d vec for labels
     """
 
@@ -33,16 +33,25 @@ def gen_xy(sequence):
 
 
 def get_dataloaders(sequence, train_size=0.7, val_size=0.1, batch_size=64):
-    split1 = int(len(sequence) * train_size)
-    split2 = int(len(sequence) * (train_size + val_size))
-    
-    train_data = sequence[:split1]
-    val_data = sequence[split1:split2]
-    test_data = sequence[split2:]
+    # split1 = int(len(sequence) * train_size)
+    # split2 = int(len(sequence) * (train_size + val_size))
 
-    x_train, y_train = gen_xy(train_data)
-    x_val, y_val = gen_xy(val_data)
-    x_test, y_test = gen_xy(test_data)
+    # train_data = sequence[:split1]
+    # val_data = sequence[split1:split2]
+    # test_data = sequence[split2:]
+
+    # x_train, y_train = gen_xy(train_data)
+    # x_val, y_val = gen_xy(val_data)
+    # x_test, y_test = gen_xy(test_data)
+
+    x, y = gen_xy(sequence)
+
+    split1 = int(len(x) * train_size)
+    split2 = int(len(sequence) * (train_size + val_size))
+
+    x_train, y_train = x[:split1], y[:split1]
+    x_val, y_val = x[split1:split2], y[split1:split2]
+    x_test, y_test = x[split2:], y[split2:]
 
     print(f"Trainset:\tx-{x_train.size()}\ty-{y_train.size()}")
     print(f"Valset:  \tx-{x_val.size()}  \ty-{y_val.size()}")
@@ -250,14 +259,14 @@ if __name__ == "__main__":
     ].values
 
     train_loader, val_loader, test_loader = get_dataloaders(
-        sequence, batch_size=batch_size, train_size=0.8, val_size=0.1
+        sequence, batch_size=batch_size, train_size=0.7, val_size=0.1
     )
 
     model = BinaryClassifier(
         num_users=num_users, embedding_dim=embedding_dim, hidden_dim=hidden_dim
     ).to(DEVICE)
 
-    criterion = torch.nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     model = train(
         model,
@@ -266,7 +275,7 @@ if __name__ == "__main__":
         optimizer,
         criterion,
         max_epochs=max_epochs,
-        early_stop=9999,
+        early_stop=15,
         verbose=1,
         plot=False,
         log=log_file,

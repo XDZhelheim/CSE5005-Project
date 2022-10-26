@@ -29,7 +29,7 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
 
     from_user = user_list[from_user_idx]
     to_user = random.choice(user_list)
-    value = random.random() * 10
+    value = random.random() * 10 # !转账额度怎么生成
 
     label = 0
     tx_list.append([send_ts, recv_ts, latency, label, from_user, to_user, value])
