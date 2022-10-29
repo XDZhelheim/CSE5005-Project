@@ -86,7 +86,7 @@ class RNNClassifier(nn.Module):
         
         # self.bn = nn.BatchNorm1d(num_features=embedding_dim)
 
-        self.input_dim = embedding_dim * 2
+        self.input_dim = embedding_dim * 2 + 1
         self.hidden_dim = hidden_dim
         self.bidirectional = bidirectional
 
@@ -145,7 +145,7 @@ class RNNClassifier(nn.Module):
         # to_embedding = self.bn(to_embedding.permute(0, 2, 1)).permute(0, 2, 1)
         
         input = torch.concat(
-            (from_embedding, to_embedding), dim=2
+            (from_embedding, to_embedding, label), dim=2
         )
 
         out, _ = self.rnn(input)
