@@ -36,11 +36,13 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
 
 
 if __name__ == "__main__":
-    with open("./website.json", "r", encoding="utf8") as f:
-        website_list = json.load(f)
-
-    pattern = re.compile("http://(.+?)/")
-    url_list = [re.findall(pattern, dic["home"])[0] for dic in website_list]
+    # with open("./website.json", "r", encoding="utf8") as f:
+    #     website_list = json.load(f)
+    # pattern = re.compile("http://(.+?)/")
+    # url_list = [re.findall(pattern, dic["home"])[0] for dic in website_list]
+    
+    with open("./links_filtered.json", "r", encoding="utf8") as f:
+        url_list = json.load(f)
 
     df_user = pd.read_csv("./user.csv")
     user_list = df_user["address"].values
