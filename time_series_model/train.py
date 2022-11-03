@@ -250,7 +250,7 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
 
-    num = 99771
+    num = 100000
     sequence = pd.read_pickle(f"../data/data_{num}.pkl")[
         ["from_user_id", "to_user_id", "label"]
     ].values
