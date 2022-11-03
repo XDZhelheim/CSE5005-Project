@@ -5,6 +5,9 @@ import random
 import json
 import re
 import multiprocessing as mp
+from threading import Thread, Lock
+
+lock=Lock()
 
 
 def gen_tx(tx_list, url_list, user_list, user_url_list):
@@ -32,7 +35,9 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
     value = random.random() * 10 # !转账额度怎么生成
 
     label = 0
+    lock.acquire()
     tx_list.append([send_ts, recv_ts, latency, label, from_user, to_user, value])
+    lock.release()
 
 
 if __name__ == "__main__":
@@ -50,13 +55,31 @@ if __name__ == "__main__":
     user_list = df_user["address"].values
     user_url_list = df_user["url"].values
 
-    tx_list = mp.Manager().list()
+    # tx_list = mp.Manager().list()
+    # n = 100000
+    # num_jobs_running = 500
+    # for i in range(n // num_jobs_running):
+    #     jobs = []
+    #     for _ in range(num_jobs_running):
+    #         proc = mp.Process(
+    #             target=gen_tx, args=(tx_list, url_list, user_list, user_url_list)
+    #         )
+    #         jobs.append(proc)
+
+    #     for j in jobs:
+    #         j.start()
+    #     for j in jobs:
+    #         j.join()
+
+    #     print(f"Finished round {i+1}")
+    
+    tx_list = []
     n = 100000
     num_jobs_running = 500
     for i in range(n // num_jobs_running):
         jobs = []
         for _ in range(num_jobs_running):
-            proc = mp.Process(
+            proc = Thread(
                 target=gen_tx, args=(tx_list, url_list, user_list, user_url_list)
             )
             jobs.append(proc)
@@ -67,7 +90,7 @@ if __name__ == "__main__":
             j.join()
 
         print(f"Finished round {i+1}")
-
+    
     print(len(tx_list))
     print(tx_list[:5])
 
