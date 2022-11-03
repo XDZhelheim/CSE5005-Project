@@ -7,7 +7,7 @@ import re
 import multiprocessing as mp
 from threading import Thread, Lock
 
-lock=Lock()
+lock = Lock()
 
 
 def gen_tx(tx_list, url_list, user_list, user_url_list):
@@ -32,9 +32,10 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
 
     from_user = user_list[from_user_idx]
     to_user = random.choice(user_list)
-    value = random.random() * 10 # !转账额度怎么生成
+    value = random.random() * 10  # !转账额度怎么生成
 
     label = 0
+
     lock.acquire()
     tx_list.append([send_ts, recv_ts, latency, label, from_user, to_user, value])
     lock.release()
@@ -42,14 +43,14 @@ def gen_tx(tx_list, url_list, user_list, user_url_list):
 
 if __name__ == "__main__":
     # mp.set_start_method("fork")
-    
+
     # with open("./website.json", "r", encoding="utf8") as f:
     #     website_list = json.load(f)
     # pattern = re.compile("http://(.+?)/")
     # url_list = [re.findall(pattern, dic["home"])[0] for dic in website_list]
-    
+
     with open("./links_filtered.json", "r", encoding="utf8") as f:
-        url_list = json.load(f)[:800]
+        url_list = json.load(f)
 
     df_user = pd.read_csv("./user.csv")
     user_list = df_user["address"].values
@@ -72,7 +73,7 @@ if __name__ == "__main__":
     #         j.join()
 
     #     print(f"Finished round {i+1}")
-    
+
     tx_list = []
     n = 100000
     num_jobs_running = 500
@@ -90,7 +91,7 @@ if __name__ == "__main__":
             j.join()
 
         print(f"Finished round {i+1}")
-    
+
     print(len(tx_list))
     print(tx_list[:5])
 
