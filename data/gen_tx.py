@@ -75,7 +75,7 @@ if __name__ == "__main__":
     #     print(f"Finished round {i+1}")
 
     tx_list = []
-    n = 100000
+    n = 50000
     num_jobs_running = 500
     for i in range(n // num_jobs_running):
         jobs = []
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         for j in jobs:
             j.join()
 
-        print(f"Finished round {i+1}")
+        print(f"{datetime.datetime.now()} Finished round {i+1}")
 
     print(len(tx_list))
     print(tx_list[:5])
@@ -117,4 +117,4 @@ if __name__ == "__main__":
     for tx in tx_list_sorted:
         df_tx.loc[len(df_tx)] = tx
 
-    df_tx.to_pickle(f"./tx_{len(df_tx)}.pkl")
+    df_tx.to_pickle(f"./tx_{len(df_tx)}_2.pkl")
