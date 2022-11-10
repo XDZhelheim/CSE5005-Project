@@ -246,8 +246,8 @@ if __name__ == "__main__":
     log_file = "train.log"
 
     if torch.backends.mps.is_available():
-        # DEVICE = torch.device("mps")
         DEVICE = torch.device("cpu")
+        # DEVICE = torch.device("mps")
     elif torch.cuda.is_available():
         GPU_ID = 0
         DEVICE = torch.device(f"cuda:{GPU_ID}")
