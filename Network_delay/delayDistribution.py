@@ -1,12 +1,9 @@
-import time
-import requests
 from urllib.parse import urlparse
-from urllib3.exceptions import InsecureRequestWarning
 import os
 from ping3 import ping
-import numpy as np
 import matplotlib.pyplot as plt
 import numpy as np
+import json
 from scipy.stats import norm
 from scipy.stats import kstest
 
@@ -65,10 +62,12 @@ def outputDelay(delayList):
 
 # 将resultLink里所有url读入列表
 def readResultLink():
-    resultLink = []
-    with open('resultLink.txt', 'r') as f:
-        for line in f:
-            resultLink.append(line.strip())
+    # resultLink = []
+    # with open('resultLink.txt', 'r') as f:
+    #     for line in f:
+    #         resultLink.append(line.strip())
+    with open("../data/links_filtered.json", "r") as f:
+        resultLink=json.load(f)
     return resultLink
 
 

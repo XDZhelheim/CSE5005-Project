@@ -21,13 +21,13 @@ class BinaryClassifier(nn.Module):
             num_embeddings=num_users, embedding_dim=embedding_dim, padding_idx=-1
         )
 
-        self.mlp = nn.Sequential(
-            nn.Linear(self.input_dim, self.hidden_dim),
-            nn.BatchNorm1d(num_features=self.hidden_dim),
-            nn.Dropout(0.2, inplace=True),
-            nn.ReLU(inplace=True),
-            nn.Linear(self.hidden_dim, 2),
-        )
+        # self.mlp = nn.Sequential(
+        #     nn.Linear(self.input_dim, self.hidden_dim),
+        #     nn.BatchNorm1d(num_features=self.hidden_dim),
+        #     nn.Dropout(0.2, inplace=True),
+        #     nn.ReLU(inplace=True),
+        #     nn.Linear(self.hidden_dim, 2),
+        # )
         
         # self.mlp = nn.Sequential(
         #     nn.Linear(self.input_dim, 2),
@@ -35,7 +35,7 @@ class BinaryClassifier(nn.Module):
         #     nn.Dropout(0.2, inplace=True),
         # ) # 0.8
         
-        # self.mlp = nn.Linear(self.input_dim, 2)
+        self.mlp = nn.Linear(self.input_dim, 2)
 
     def forward(self, x):
         # x: (batch_size, 2, 3(from, to, label))

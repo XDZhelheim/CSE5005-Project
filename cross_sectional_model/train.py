@@ -254,7 +254,7 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
 
-    sequence = pd.read_pickle("../data/data_100000.pkl")[
+    sequence = pd.read_pickle("../data/data_50000_2.pkl")[
         ["from_user_id", "to_user_id", "label"]
     ].values
 
