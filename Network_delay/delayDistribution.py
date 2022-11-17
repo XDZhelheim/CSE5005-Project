@@ -10,7 +10,7 @@ from scipy.stats import kstest
 
 # ping命令获得网络延时
 def pingDelay(url):
-    url = urlparse(url).netloc
+    # url = urlparse(url).netloc
     cmd = 'ping -n 1 ' + url
     p = os.popen(cmd)
     x = p.read()
@@ -35,12 +35,14 @@ def getDelay(resultLink):
     fail = 0
     delayList = []
     for url in resultLink:
-        delay = pingDelay(url)
-        if delay == -1:
-            fail += 1
-        else:
-            success += 1
-        delayList.append(delay)
+        for i in range(10):
+            delay = pingDelay(url)
+            if delay == -1:
+                fail += 1
+                break
+            else:
+                success += 1
+            delayList.append(delay)
         print('success: ', success)
         print('fail: ', fail)
 
@@ -56,7 +58,7 @@ def getDelay(resultLink):
 
 # 输出延时列表到txt
 def outputDelay(delayList):
-    with open('delay.txt', 'w') as f:
+    with open('delaymore.txt', 'w') as f:
         for delay in delayList:
             f.write(str(delay) + '\n')
 
@@ -82,7 +84,7 @@ def dropDelay(delayList):
     for delay in delayList:
         if delay != str(-1):
             delayListDrop.append(delay)
-    with open("delayDrop.txt", 'w') as f:
+    with open("delaymoreDrop.txt", 'w') as f:
         for delay in delayListDrop:
             f.write(str(delay) + '\n')
     return delayListDrop
@@ -99,8 +101,8 @@ def readDelay(delayFile):
 # delayList = readDelay('delay.txt')
 # delayListDrop = dropDelay(delayList)
 
-
-delayListDrop = readDelay('delayDrop.txt')
+delayList = readDelay('delaymore.txt')
+delayListDrop = dropDelay(delayList)
 # 将列表中的延时转换为int类型
 delayListDrop = [int(delay) for delay in delayListDrop]
 # 求列表数据均值，标准差
@@ -146,3 +148,5 @@ def randomDelayList(mean, std, n):
     return delayOUTList
 
 print(randomDelayList(mean, std, 100)) # 单位ms
+#mean = 114.113
+# std = 81.4416
