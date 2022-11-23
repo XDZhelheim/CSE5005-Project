@@ -150,3 +150,7 @@ def randomDelayList(mean, std, n):
 print(randomDelayList(mean, std, 100)) # 单位ms
 #mean = 114.113
 # std = 81.4416
+
+
+
+
