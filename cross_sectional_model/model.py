@@ -23,8 +23,8 @@ class BinaryClassifier(nn.Module):
 
         # self.mlp = nn.Sequential(
         #     nn.Linear(self.input_dim, self.hidden_dim),
-        #     nn.BatchNorm1d(num_features=self.hidden_dim),
-        #     nn.Dropout(0.2, inplace=True),
+        #     # nn.BatchNorm1d(num_features=self.hidden_dim),
+        #     # nn.Dropout(0.2, inplace=True),
         #     nn.ReLU(inplace=True),
         #     nn.Linear(self.hidden_dim, 2),
         # )

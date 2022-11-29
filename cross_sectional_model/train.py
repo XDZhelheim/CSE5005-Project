@@ -236,7 +236,7 @@ def train(
 
 
 if __name__ == "__main__":
-    num_users = 2000
+    num_users = 5000
     embedding_dim = 8
     hidden_dim = 16
     batch_size = 64
@@ -254,7 +254,7 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
 
-    sequence = pd.read_pickle("../data/data_50000_2.pkl")[
+    sequence = pd.read_pickle("../data/data_100000_distr.pkl")[
         ["from_user_id", "to_user_id", "label"]
     ].values
 
@@ -275,7 +275,7 @@ if __name__ == "__main__":
         optimizer,
         criterion,
         max_epochs=max_epochs,
-        early_stop=9999,
+        early_stop=30,
         verbose=1,
         plot=False,
         log=log_file,

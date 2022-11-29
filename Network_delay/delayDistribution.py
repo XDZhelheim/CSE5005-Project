@@ -7,6 +7,9 @@ import json
 from scipy.stats import norm
 from scipy.stats import kstest
 
+MEAN=114.11338730598918
+STD=81.44148324226019
+
 
 # ping命令获得网络延时
 def pingDelay(url):
@@ -73,11 +76,6 @@ def readResultLink():
     return resultLink
 
 
-# step1: 测试延时数据，输出到delay.txt
-# resultLink = readResultLink()
-# delayList = getDelay(resultLink)
-# outputDelay(delayList)
-
 # 去掉延时列表中的-1，并输出到delayDrop.txt
 def dropDelay(delayList):
     delayListDrop = []
@@ -97,19 +95,6 @@ def readDelay(delayFile):
             delayList.append(line.strip())
     return delayList
 
-# step2: 去掉延时列表中的-1，并输出到delayDrop.txt
-# delayList = readDelay('delay.txt')
-# delayListDrop = dropDelay(delayList)
-
-delayList = readDelay('delaymore.txt')
-delayListDrop = dropDelay(delayList)
-# 将列表中的延时转换为int类型
-delayListDrop = [int(delay) for delay in delayListDrop]
-# 求列表数据均值，标准差
-mean = np.mean(delayListDrop)
-std = np.std(delayListDrop)
-print('mean: ', mean)
-print('std: ', std)
 
 # 给出均值，标准差，生成正态分布，并画图
 def normalDistribution(mean, std):
@@ -132,7 +117,7 @@ def ksTest(delayListDrop, mean, std):
 # ksTest(delayListDrop, mean, std)
 
 # 利用正态分布生成随机数
-def randomDelay(mean, std):
+def randomDelay(mean=MEAN, std=STD):
     delay = np.random.normal(mean, std)
     # 生成的随机数不能小于0,如果小于0，重新生成
     while delay < 0:
@@ -140,17 +125,41 @@ def randomDelay(mean, std):
     return delay
 
 # 基于正态分布生成n个随机延迟
-def randomDelayList(mean, std, n):
+def randomDelayList(n, mean=MEAN, std=STD):
     delayOUTList = []
-    for i in range(100):
+    for i in range(n):
         delay = randomDelay(mean, std)
         delayOUTList.append(delay)
     return delayOUTList
 
-print(randomDelayList(mean, std, 100)) # 单位ms
-#mean = 114.113
-# std = 81.4416
 
+def user_delay_normal_09(mean, range=0.1):
+    std=range/1.65
+    delay=np.random.normal(mean, std)
+    
+    return delay
 
+if __name__ == "__main__":
+    # step1: 测试延时数据，输出到delay.txt
+    # resultLink = readResultLink()
+    # delayList = getDelay(resultLink)
+    # outputDelay(delayList)
+    
+    # step2: 去掉延时列表中的-1，并输出到delayDrop.txt
+    # delayList = readDelay('delay.txt')
+    # delayListDrop = dropDelay(delayList)
 
-
+    delayList = readDelay('delaymore.txt')
+    delayListDrop = dropDelay(delayList)
+    # 将列表中的延时转换为int类型
+    delayListDrop = [int(delay) for delay in delayListDrop]
+    # 求列表数据均值，标准差
+    mean = np.mean(delayListDrop)
+    std = np.std(delayListDrop)
+    print('mean: ', mean)
+    print('std: ', std)
+    
+    print(randomDelayList(mean, std, 100)) # 单位ms
+    # mean = 114.113
+    # std = 81.4416
+    
