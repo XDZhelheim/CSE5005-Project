@@ -243,7 +243,7 @@ if __name__ == "__main__":
     lr = 1e-4
 
     max_epochs = 1000
-    log_file = "train.log"
+    log_file = "train_99771.log"
 
     if torch.backends.mps.is_available():
         DEVICE = torch.device("cpu")
@@ -253,8 +253,11 @@ if __name__ == "__main__":
         DEVICE = torch.device(f"cuda:{GPU_ID}")
     else:
         DEVICE = torch.device("cpu")
+        
+    # data = "../data/data_100000_distr.pkl"
+    data = "../data/data_99771.pkl"
 
-    sequence = pd.read_pickle("../data/data_100000_distr.pkl")[
+    sequence = pd.read_pickle(data)[
         ["from_user_id", "to_user_id", "label"]
     ].values
 

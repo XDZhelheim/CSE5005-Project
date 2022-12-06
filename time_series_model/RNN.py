@@ -99,7 +99,6 @@ class RNNClassifier(nn.Module):
                 dropout=dropout,
                 bidirectional=bidirectional,
             )
-            self.reset_lstm_params()
         elif net_type.lower() == "gru":
             self.rnn = nn.GRU(
                 input_size=self.input_dim,

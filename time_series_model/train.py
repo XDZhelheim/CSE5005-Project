@@ -250,44 +250,89 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
 
-    num = 100000
-    sequence = pd.read_pickle(f"../data/data_{num}.pkl")[
-        ["from_user_id", "to_user_id", "label"]
-    ].values
+    # num = 100000
+    # sequence = pd.read_pickle(f"../data/data_{num}.pkl")[
+    #     ["from_user_id", "to_user_id", "label"]
+    # ].values
 
-    train_loader, val_loader, test_loader = get_dataloaders(
-        sequence, window, batch_size=batch_size
-    )
+    # train_loader, val_loader, test_loader = get_dataloaders(
+    #     sequence, window, batch_size=batch_size
+    # )
 
-    model = RNNClassifier(
-        num_users=num_users,
-        embedding_dim=embedding_dim,
-        hidden_dim=hidden_dim,
-        net_type=net_type,
-        num_layers=num_layers,
-        bidirectional=bi,
-        dropout=dropout,
-    ).to(DEVICE)
+    # model = RNNClassifier(
+    #     num_users=num_users,
+    #     embedding_dim=embedding_dim,
+    #     hidden_dim=hidden_dim,
+    #     net_type=net_type,
+    #     num_layers=num_layers,
+    #     bidirectional=bi,
+    #     dropout=dropout,
+    # ).to(DEVICE)
 
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    model = train(
-        model,
-        train_loader,
-        val_loader,
-        optimizer,
-        criterion,
-        max_epochs=max_epochs,
-        early_stop=10,
-        verbose=1,
-        plot=False,
-        log=log_file,
-    )
+    # criterion = torch.nn.CrossEntropyLoss()
+    # optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    # model = train(
+    #     model,
+    #     train_loader,
+    #     val_loader,
+    #     optimizer,
+    #     criterion,
+    #     max_epochs=max_epochs,
+    #     early_stop=10,
+    #     verbose=1,
+    #     plot=False,
+    #     log=log_file,
+    # )
 
-    test_loss, test_acc = eval_model(model, test_loader, criterion)
-    print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc)
-    with open(log_file, "a") as f:
-        print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc, file=f)
+    # test_loss, test_acc = eval_model(model, test_loader, criterion)
+    # print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc)
+    # with open(log_file, "a") as f:
+    #     print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc, file=f)
+        
+    for net_type in ("gru", "lstm", "vanilla"):
+        for data, num_users in [("100000_distr", 5000), ("99771", 2000)]:
+            log_file = f"{net_type}_{data}.log"
+            sequence = pd.read_pickle(f"../data/data_{data}.pkl")[
+                ["from_user_id", "to_user_id", "label"]
+            ].values
+
+            train_loader, val_loader, test_loader = get_dataloaders(
+                sequence, window, batch_size=batch_size
+            )
+
+            model = RNNClassifier(
+                num_users=num_users,
+                embedding_dim=embedding_dim,
+                hidden_dim=hidden_dim,
+                net_type=net_type,
+                num_layers=num_layers,
+                bidirectional=bi,
+                dropout=dropout,
+            ).to(DEVICE)
+
+            criterion = torch.nn.CrossEntropyLoss()
+            optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+            model = train(
+                model,
+                train_loader,
+                val_loader,
+                optimizer,
+                criterion,
+                max_epochs=max_epochs,
+                early_stop=10,
+                verbose=1,
+                plot=False,
+                log=log_file,
+            )
+
+            test_loss, test_acc = eval_model(model, test_loader, criterion)
+            print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc)
+            with open(log_file, "a") as f:
+                print(
+                    "Test Loss = %.5f" % test_loss,
+                    "Test acc = %.5f " % test_acc,
+                    file=f,
+                )
         
     # for net_type in ("gru", "lstm", "vanilla"):
     #     for num in (9969, 49986, 99771):
