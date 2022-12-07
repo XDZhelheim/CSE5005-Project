@@ -242,8 +242,8 @@ if __name__ == "__main__":
     batch_size = 64
     lr = 1e-4
 
-    max_epochs = 1000
-    log_file = "train_99771.log"
+    max_epochs = 100
+    log_file = "temp.log"
 
     if torch.backends.mps.is_available():
         DEVICE = torch.device("cpu")
@@ -254,8 +254,8 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device("cpu")
         
-    # data = "../data/data_100000_distr.pkl"
-    data = "../data/data_99771.pkl"
+    data = "../data/data_100000_distr.pkl"
+    # data = "../data/data_99771.pkl"
 
     sequence = pd.read_pickle(data)[
         ["from_user_id", "to_user_id", "label"]

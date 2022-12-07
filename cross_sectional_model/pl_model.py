@@ -49,13 +49,13 @@ def get_dataloaders(sequence, train_size=0.7, val_size=0.1, batch_size=64):
     testset = torch.utils.data.TensorDataset(x_test, y_test)
 
     trainset_loader = torch.utils.data.DataLoader(
-        trainset, batch_size=batch_size, shuffle=True
+        trainset, batch_size=batch_size, shuffle=True, num_workers=2, persistent_workers=True, pin_memory=True
     )
     valset_loader = torch.utils.data.DataLoader(
-        valset, batch_size=batch_size, shuffle=False
+        valset, batch_size=batch_size, shuffle=False, num_workers=2, persistent_workers=True, pin_memory=True
     )
     testset_loader = torch.utils.data.DataLoader(
-        testset, batch_size=batch_size, shuffle=False
+        testset, batch_size=batch_size, shuffle=False, num_workers=2, persistent_workers=True, pin_memory=True
     )
 
     return trainset_loader, valset_loader, testset_loader
@@ -250,8 +250,8 @@ if __name__ == "__main__":
     # model=PL_MLP(num_users=5000, embedding_dim=8, hidden_dim=16)
     model=RNNClassifier(num_users=5000, embedding_dim=8, hidden_dim=16)
     model.set_criterion(nn.CrossEntropyLoss())
-    model.set_optimizer(torch.optim.Adam(model.parameters(), lr=1e-3))
+    model.set_optimizer(torch.optim.Adam(model.parameters(), lr=1e-4))
 
-    trainer=pl.Trainer(accelerator="cpu", max_epochs=1000, enable_progress_bar=True, enable_checkpointing=False)
+    trainer=pl.Trainer(accelerator="cpu", max_epochs=10, enable_progress_bar=True, enable_checkpointing=False, profiler="simple")
     trainer.fit(model, train_loader, val_loader)
     
