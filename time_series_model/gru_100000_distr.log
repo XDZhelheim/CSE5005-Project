@@ -1,0 +1,63 @@
+2022-12-06 15:27:35.698971 Epoch 1 	Train Loss = 0.69430 Train acc = 0.50015  Val Loss = 0.69401 Val acc = 0.49921 
+2022-12-06 15:27:37.575077 Epoch 2 	Train Loss = 0.69383 Train acc = 0.50015  Val Loss = 0.69364 Val acc = 0.49825 
+2022-12-06 15:27:39.448781 Epoch 3 	Train Loss = 0.69342 Train acc = 0.50014  Val Loss = 0.69315 Val acc = 0.49911 
+2022-12-06 15:27:41.850355 Epoch 4 	Train Loss = 0.69303 Train acc = 0.50014  Val Loss = 0.69264 Val acc = 0.50047 
+2022-12-06 15:27:43.781948 Epoch 5 	Train Loss = 0.69262 Train acc = 0.50026  Val Loss = 0.69231 Val acc = 0.49893 
+2022-12-06 15:27:45.688680 Epoch 6 	Train Loss = 0.69219 Train acc = 0.50151  Val Loss = 0.69172 Val acc = 0.50155 
+2022-12-06 15:27:47.572785 Epoch 7 	Train Loss = 0.69169 Train acc = 0.50426  Val Loss = 0.69121 Val acc = 0.50646 
+2022-12-06 15:27:49.468370 Epoch 8 	Train Loss = 0.69111 Train acc = 0.51064  Val Loss = 0.69063 Val acc = 0.51380 
+2022-12-06 15:27:51.364026 Epoch 9 	Train Loss = 0.69041 Train acc = 0.51998  Val Loss = 0.68979 Val acc = 0.52499 
+2022-12-06 15:27:53.224139 Epoch 10 	Train Loss = 0.68959 Train acc = 0.53131  Val Loss = 0.68891 Val acc = 0.53494 
+2022-12-06 15:27:55.135843 Epoch 11 	Train Loss = 0.68861 Train acc = 0.54654  Val Loss = 0.68785 Val acc = 0.54969 
+2022-12-06 15:27:57.044288 Epoch 12 	Train Loss = 0.68746 Train acc = 0.56020  Val Loss = 0.68661 Val acc = 0.56687 
+2022-12-06 15:27:58.954987 Epoch 13 	Train Loss = 0.68610 Train acc = 0.57487  Val Loss = 0.68516 Val acc = 0.57805 
+2022-12-06 15:28:00.861740 Epoch 14 	Train Loss = 0.68449 Train acc = 0.58885  Val Loss = 0.68325 Val acc = 0.59430 
+2022-12-06 15:28:02.813244 Epoch 15 	Train Loss = 0.68260 Train acc = 0.60321  Val Loss = 0.68150 Val acc = 0.60801 
+2022-12-06 15:28:04.674971 Epoch 16 	Train Loss = 0.68040 Train acc = 0.61695  Val Loss = 0.67904 Val acc = 0.62378 
+2022-12-06 15:28:06.536246 Epoch 17 	Train Loss = 0.67786 Train acc = 0.63124  Val Loss = 0.67622 Val acc = 0.63411 
+2022-12-06 15:28:08.414102 Epoch 18 	Train Loss = 0.67502 Train acc = 0.63997  Val Loss = 0.67353 Val acc = 0.64328 
+2022-12-06 15:28:10.278713 Epoch 19 	Train Loss = 0.67184 Train acc = 0.64856  Val Loss = 0.67020 Val acc = 0.64878 
+2022-12-06 15:28:12.170100 Epoch 20 	Train Loss = 0.66842 Train acc = 0.65347  Val Loss = 0.66673 Val acc = 0.65700 
+2022-12-06 15:28:14.041718 Epoch 21 	Train Loss = 0.66478 Train acc = 0.65960  Val Loss = 0.66318 Val acc = 0.66181 
+2022-12-06 15:28:16.057034 Epoch 22 	Train Loss = 0.66100 Train acc = 0.66215  Val Loss = 0.65930 Val acc = 0.66357 
+2022-12-06 15:28:17.944917 Epoch 23 	Train Loss = 0.65722 Train acc = 0.66376  Val Loss = 0.65558 Val acc = 0.66504 
+2022-12-06 15:28:19.785367 Epoch 24 	Train Loss = 0.65353 Train acc = 0.66512  Val Loss = 0.65227 Val acc = 0.66518 
+2022-12-06 15:28:21.616537 Epoch 25 	Train Loss = 0.65000 Train acc = 0.66641  Val Loss = 0.64914 Val acc = 0.66510 
+2022-12-06 15:28:23.447368 Epoch 26 	Train Loss = 0.64679 Train acc = 0.66661  Val Loss = 0.64571 Val acc = 0.66694 
+2022-12-06 15:28:25.282904 Epoch 27 	Train Loss = 0.64395 Train acc = 0.66706  Val Loss = 0.64392 Val acc = 0.66502 
+2022-12-06 15:28:27.112231 Epoch 28 	Train Loss = 0.64148 Train acc = 0.66708  Val Loss = 0.64105 Val acc = 0.66656 
+2022-12-06 15:28:28.975141 Epoch 29 	Train Loss = 0.63943 Train acc = 0.66714  Val Loss = 0.63986 Val acc = 0.66560 
+2022-12-06 15:28:30.904025 Epoch 30 	Train Loss = 0.63773 Train acc = 0.66726  Val Loss = 0.63797 Val acc = 0.66646 
+2022-12-06 15:28:32.789050 Epoch 31 	Train Loss = 0.63635 Train acc = 0.66719  Val Loss = 0.63718 Val acc = 0.66550 
+2022-12-06 15:28:34.648853 Epoch 32 	Train Loss = 0.63517 Train acc = 0.66727  Val Loss = 0.63680 Val acc = 0.66454 
+2022-12-06 15:28:36.510002 Epoch 33 	Train Loss = 0.63424 Train acc = 0.66730  Val Loss = 0.63501 Val acc = 0.66598 
+2022-12-06 15:28:38.362063 Epoch 34 	Train Loss = 0.63348 Train acc = 0.66731  Val Loss = 0.63534 Val acc = 0.66454 
+2022-12-06 15:28:40.227656 Epoch 35 	Train Loss = 0.63284 Train acc = 0.66730  Val Loss = 0.63441 Val acc = 0.66550 
+2022-12-06 15:28:42.086807 Epoch 36 	Train Loss = 0.63232 Train acc = 0.66730  Val Loss = 0.63351 Val acc = 0.66598 
+2022-12-06 15:28:43.972971 Epoch 37 	Train Loss = 0.63185 Train acc = 0.66730  Val Loss = 0.63319 Val acc = 0.66598 
+2022-12-06 15:28:45.830164 Epoch 38 	Train Loss = 0.63145 Train acc = 0.66731  Val Loss = 0.63241 Val acc = 0.66694 
+2022-12-06 15:28:47.704163 Epoch 39 	Train Loss = 0.63110 Train acc = 0.66732  Val Loss = 0.63260 Val acc = 0.66598 
+2022-12-06 15:28:49.548539 Epoch 40 	Train Loss = 0.63083 Train acc = 0.66728  Val Loss = 0.63224 Val acc = 0.66636 
+2022-12-06 15:28:51.385024 Epoch 41 	Train Loss = 0.63054 Train acc = 0.66734  Val Loss = 0.63182 Val acc = 0.66636 
+2022-12-06 15:28:53.223835 Epoch 42 	Train Loss = 0.63032 Train acc = 0.66724  Val Loss = 0.63228 Val acc = 0.66588 
+2022-12-06 15:28:55.060907 Epoch 43 	Train Loss = 0.63007 Train acc = 0.66724  Val Loss = 0.63249 Val acc = 0.66492 
+2022-12-06 15:28:56.897229 Epoch 44 	Train Loss = 0.62985 Train acc = 0.66725  Val Loss = 0.63149 Val acc = 0.66636 
+2022-12-06 15:28:58.740909 Epoch 45 	Train Loss = 0.62965 Train acc = 0.66725  Val Loss = 0.63141 Val acc = 0.66646 
+2022-12-06 15:29:00.565998 Epoch 46 	Train Loss = 0.62947 Train acc = 0.66724  Val Loss = 0.63219 Val acc = 0.66464 
+2022-12-06 15:29:02.404514 Epoch 47 	Train Loss = 0.62930 Train acc = 0.66723  Val Loss = 0.63189 Val acc = 0.66522 
+2022-12-06 15:29:04.227607 Epoch 48 	Train Loss = 0.62915 Train acc = 0.66721  Val Loss = 0.63052 Val acc = 0.66761 
+2022-12-06 15:29:06.062489 Epoch 49 	Train Loss = 0.62900 Train acc = 0.66724  Val Loss = 0.63149 Val acc = 0.66570 
+2022-12-06 15:29:07.917710 Epoch 50 	Train Loss = 0.62887 Train acc = 0.66716  Val Loss = 0.63106 Val acc = 0.66618 
+2022-12-06 15:29:09.762421 Epoch 51 	Train Loss = 0.62873 Train acc = 0.66726  Val Loss = 0.63071 Val acc = 0.66665 
+2022-12-06 15:29:11.587602 Epoch 52 	Train Loss = 0.62863 Train acc = 0.66713  Val Loss = 0.63061 Val acc = 0.66665 
+2022-12-06 15:29:13.443953 Epoch 53 	Train Loss = 0.62848 Train acc = 0.66726  Val Loss = 0.63126 Val acc = 0.66580 
+2022-12-06 15:29:15.272014 Epoch 54 	Train Loss = 0.62838 Train acc = 0.66722  Val Loss = 0.63181 Val acc = 0.66504 
+2022-12-06 15:29:17.103751 Epoch 55 	Train Loss = 0.62828 Train acc = 0.66730  Val Loss = 0.63058 Val acc = 0.66637 
+2022-12-06 15:29:18.938509 Epoch 56 	Train Loss = 0.62818 Train acc = 0.66725  Val Loss = 0.63096 Val acc = 0.66589 
+2022-12-06 15:29:20.765779 Epoch 57 	Train Loss = 0.62812 Train acc = 0.66725  Val Loss = 0.63107 Val acc = 0.66580 
+2022-12-06 15:29:22.609401 Epoch 58 	Train Loss = 0.62801 Train acc = 0.66734  Val Loss = 0.63161 Val acc = 0.66454 
+Early stopping at epoch: 58
+Best at epoch 48:
+Train Loss = 0.62915 Train acc = 0.66721 
+Val Loss = 0.63052 Val acc = 0.66761 
+Test Loss = 0.62852 Test acc = 0.67110 

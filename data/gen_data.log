@@ -1,0 +1,121 @@
+Finished round 1
+Finished round 2
+Finished round 3
+Finished round 4
+Exception in thread Thread-2482:
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "gen_tx.py", line 19, in gen_tx
+    latency = ping(url)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 83, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 311, in ping
+    delay = receive_one_ping(sock=sock, icmp_id=icmp_id, seq=seq, timeout=timeout)  # in seconds
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 83, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 254, in receive_one_ping
+    _debug("Received sent time: {} ({})".format(time.ctime(time_sent), time_sent))
+OverflowError: timestamp out of range for platform time_t
+Finished round 5
+Finished round 6
+Finished round 7
+Finished round 8
+Finished round 9
+Finished round 10
+Finished round 11
+Finished round 12
+Finished round 13
+Finished round 14
+Finished round 15
+Finished round 16
+Finished round 17
+Finished round 18
+Finished round 19
+Finished round 20
+Finished round 21
+Finished round 22
+Finished round 23
+Finished round 24
+Finished round 25
+Finished round 26
+Finished round 27
+Finished round 28
+Finished round 29
+Finished round 30
+Finished round 31
+Finished round 32
+Finished round 33
+Finished round 34
+Finished round 35
+Finished round 36
+Finished round 37
+Finished round 38
+Finished round 39
+Finished round 40
+Finished round 41
+Finished round 42
+Finished round 43
+Finished round 44
+Finished round 45
+Finished round 46
+Finished round 47
+Finished round 48
+Finished round 49
+Finished round 50
+Finished round 51
+Finished round 52
+Finished round 53
+Finished round 54
+Finished round 55
+Finished round 56
+Finished round 57
+Finished round 58
+Finished round 59
+Finished round 60
+Exception in thread Thread-30172:
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "gen_tx.py", line 19, in gen_tx
+    latency = ping(url)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 83, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 311, in ping
+    delay = receive_one_ping(sock=sock, icmp_id=icmp_id, seq=seq, timeout=timeout)  # in seconds
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 83, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/site-packages/ping3/__init__.py", line 254, in receive_one_ping
+    _debug("Received sent time: {} ({})".format(time.ctime(time_sent), time_sent))
+OverflowError: timestamp out of range for platform time_t
+Finished round 61
+Finished round 62
+Finished round 63
+Finished round 64
+Finished round 65
+Finished round 66
+Finished round 67
+Finished round 68
+Finished round 69
+Finished round 70
+Finished round 71
+Finished round 72
+Finished round 73
+Finished round 74
+Finished round 75
+Finished round 76
+Finished round 77
+Finished round 78
+Finished round 79
+Traceback (most recent call last):
+  File "gen_tx.py", line 91, in <module>
+    j.join()
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 1011, in join
+    self._wait_for_tstate_lock()
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/py38/lib/python3.8/threading.py", line 1027, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
