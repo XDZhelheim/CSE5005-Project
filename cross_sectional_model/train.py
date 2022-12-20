@@ -5,7 +5,6 @@ import torch
 import torch.nn as nn
 import datetime
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 from utils import accuracy
 from model import BinaryClassifier
 
@@ -245,12 +244,12 @@ if __name__ == "__main__":
     max_epochs = 100
     log_file = "temp.log"
 
-    if torch.backends.mps.is_available():
-        DEVICE = torch.device("cpu")
-        # DEVICE = torch.device("mps")
-    elif torch.cuda.is_available():
+    if torch.cuda.is_available():
         GPU_ID = 0
         DEVICE = torch.device(f"cuda:{GPU_ID}")
+    # elif torch.backends.mps.is_available():
+    #     DEVICE = torch.device("cpu")
+    #     # DEVICE = torch.device("mps")
     else:
         DEVICE = torch.device("cpu")
         
