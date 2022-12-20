@@ -73,3 +73,6 @@ class BinaryClassifier(nn.Module):
         out = torch.softmax(out, dim=1)
 
         return out
+    
+    def get_embeddings(self):
+        return self.user_embedding_layer.weight.cpu().detach().numpy()

@@ -241,7 +241,7 @@ if __name__ == "__main__":
     batch_size = 64
     lr = 1e-4
 
-    max_epochs = 100
+    max_epochs = 1000
     log_file = "temp.log"
 
     if torch.cuda.is_available():
@@ -287,3 +287,6 @@ if __name__ == "__main__":
     print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc)
     with open(log_file, "a") as f:
         print("Test Loss = %.5f" % test_loss, "Test acc = %.5f " % test_acc, file=f)
+
+    np.save("./saved/embedding_matrix.npy", model.get_embeddings())
+    
