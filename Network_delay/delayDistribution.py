@@ -1,6 +1,5 @@
 from urllib.parse import urlparse
 import os
-from ping3 import ping
 import matplotlib.pyplot as plt
 import numpy as np
 import json
